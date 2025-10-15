@@ -1,5 +1,57 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+
+// エラーバウンダリコンポーネント
+const ErrorBoundary = ({ children }: { children: React.ReactNode }) => {
+  const [hasError, setHasError] = useState(false)
+  
+  // エラーハンドリング
+  React.useEffect(() => {
+    const handleError = () => setHasError(true)
+    window.addEventListener('error', handleError)
+    window.addEventListener('unhandledrejection', handleError)
+    return () => {
+      window.removeEventListener('error', handleError)
+      window.removeEventListener('unhandledrejection', handleError)
+    }
+  }, [])
+  
+  if (hasError) {
+    return (
+      <div style={{ 
+        padding: '20px', 
+        color: 'red', 
+        fontSize: '24px',
+        textAlign: 'center',
+        minHeight: '100vh',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        flexDirection: 'column'
+      }}>
+        <h1>エラーが発生しました</h1>
+        <p>ページを再読み込みしてください</p>
+        <button 
+          onClick={() => window.location.reload()}
+          style={{
+            padding: '10px 20px',
+            fontSize: '16px',
+            backgroundColor: '#3b82f6',
+            color: 'white',
+            border: 'none',
+            borderRadius: '5px',
+            cursor: 'pointer',
+            marginTop: '20px'
+          }}
+        >
+          再読み込み
+        </button>
+      </div>
+    )
+  }
+  
+  return <>{children}</>
+}
 
 // 美しいアイコンコンポーネント
 const DashboardIcon = () => (
@@ -1185,4 +1237,10 @@ function App() {
   )
 }
 
-export default App
+export default function AppWithErrorBoundary() {
+  return (
+    <ErrorBoundary>
+      <App />
+    </ErrorBoundary>
+  )
+}
