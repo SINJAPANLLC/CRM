@@ -1,16 +1,15 @@
-import React from 'react'
+import { useEffect } from 'react'
 import { Routes, Route } from 'react-router-dom'
 import { motion } from 'framer-motion'
 import { useAuthStore } from './stores/authStore'
 import { useDataStore } from './stores/dataStore'
 import LoginPage from './pages/LoginPage'
-import DashboardPage from './pages/DashboardPage'
 
 function App() {
   const { isAuthenticated } = useAuthStore()
   const { updateDashboardStats } = useDataStore()
 
-  React.useEffect(() => {
+  useEffect(() => {
     if (isAuthenticated) {
       updateDashboardStats()
     }

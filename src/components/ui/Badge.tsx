@@ -38,7 +38,7 @@ const Badge = React.forwardRef<HTMLDivElement, BadgeProps>(
         initial={{ opacity: 0, scale: 0.8 }}
         animate={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.2 }}
-        {...props}
+        {...(props as any)}
       >
         {children}
       </motion.div>

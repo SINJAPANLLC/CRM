@@ -15,7 +15,7 @@ import {
 } from 'lucide-react'
 import { useDataStore } from '../stores/dataStore'
 import { Customer } from '../types'
-import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card'
+import { Card, CardContent } from '../components/ui/Card'
 import { Button } from '../components/ui/Button'
 import { Input } from '../components/ui/Input'
 import { Badge } from '../components/ui/Badge'

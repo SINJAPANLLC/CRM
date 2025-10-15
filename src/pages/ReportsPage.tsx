@@ -6,12 +6,12 @@ import {
   TrendingDown,
   Download,
   Calendar,
-  Filter,
+  // Filter,
   DollarSign,
   Users,
   Building2,
   FileText,
-  PieChart,
+  // PieChart,
   LineChart
 } from 'lucide-react'
 import { useDataStore } from '../stores/dataStore'
@@ -21,7 +21,7 @@ import { Badge } from '../components/ui/Badge'
 import { formatCurrency, formatDate } from '../lib/utils'
 
 const ReportsPage: React.FC = () => {
-  const { dashboardStats, customers, properties, contracts } = useDataStore()
+  const { customers, properties, contracts } = useDataStore()
   const [selectedPeriod, setSelectedPeriod] = useState<'7d' | '30d' | '90d' | '1y'>('30d')
   const [selectedReport, setSelectedReport] = useState<'overview' | 'sales' | 'customers' | 'properties'>('overview')
 
@@ -340,7 +340,7 @@ const ReportsPage: React.FC = () => {
               </CardHeader>
               <CardContent>
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                  {customerTypes.map((item, index) => (
+                  {customerTypes.map((item) => (
                     <div key={item.type} className="text-center">
                       <div className={`h-4 w-4 rounded-full mx-auto mb-2 ${item.color}`}></div>
                       <p className="text-2xl font-bold">{item.count}</p>
@@ -484,7 +484,7 @@ const ReportsPage: React.FC = () => {
               </CardHeader>
               <CardContent>
                 <div className="space-y-4">
-                  {salesData.map((data, index) => (
+                  {salesData.map((data) => (
                     <div key={data.month} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                       <div>
                         <p className="font-medium">{data.month}</p>

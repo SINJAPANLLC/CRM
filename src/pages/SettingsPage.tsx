@@ -23,7 +23,7 @@ import { Badge } from '../components/ui/Badge'
 const SettingsPage: React.FC = () => {
   const { user, updateUser } = useAuthStore()
   const [activeTab, setActiveTab] = useState<'profile' | 'notifications' | 'security' | 'appearance' | 'company'>('profile')
-  const [showPassword, setShowPassword] = useState(false)
+  // const [showPassword, setShowPassword] = useState(false)
   const [showCurrentPassword, setShowCurrentPassword] = useState(false)
   const [showNewPassword, setShowNewPassword] = useState(false)
 

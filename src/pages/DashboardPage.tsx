@@ -9,11 +9,11 @@ import {
   Home,
   Activity,
   ArrowUpRight,
-  ArrowDownRight
+  // ArrowDownRight
 } from 'lucide-react'
 import { useDataStore } from '../stores/dataStore'
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card'
-import { Badge } from '../components/ui/Badge'
+// import { Badge } from '../components/ui/Badge'
 import { formatCurrency, formatRelativeTime } from '../lib/utils'
 
 const DashboardPage: React.FC = () => {

@@ -19,7 +19,7 @@ const Card = React.forwardRef<HTMLDivElement, CardProps>(
         )}
         whileHover={hover ? { y: -2 } : undefined}
         transition={{ duration: 0.2 }}
-        {...props}
+        {...(props as any)}
       >
         {children}
       </motion.div>

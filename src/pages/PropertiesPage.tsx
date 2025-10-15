@@ -14,11 +14,11 @@ import {
   Bed,
   Bath,
   Square,
-  Yen
+  // Yen
 } from 'lucide-react'
 import { useDataStore } from '../stores/dataStore'
 import { Property } from '../types'
-import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/Card'
+import { Card, CardContent } from '../components/ui/Card'
 import { Button } from '../components/ui/Button'
 import { Input } from '../components/ui/Input'
 import { Badge } from '../components/ui/Badge'
@@ -231,7 +231,7 @@ const PropertiesPage: React.FC = () => {
                     
                     <div className="flex items-center justify-between">
                       <div className="flex items-center text-lg font-bold text-primary-600">
-                        <Yen className="h-5 w-5 mr-1" />
+                        <span className="text-lg mr-1">¥</span>
                         {formatCurrency(property.price)}
                       </div>
                       <Badge variant="secondary" className={getPropertyTypeColor(property.type)}>

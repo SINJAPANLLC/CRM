@@ -93,3 +93,4 @@ export interface Activity {
   timestamp: Date
   metadata?: Record<string, any>
 }
+

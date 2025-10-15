@@ -36,7 +36,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
             )}
             whileFocus={{ scale: 1.01 }}
             transition={{ duration: 0.2 }}
-            {...props}
+            {...(props as any)}
           />
           {suffix && (
             <div className="absolute right-3 top-1/2 transform -translate-y-1/2">

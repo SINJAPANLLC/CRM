@@ -315,3 +315,4 @@ export const useDataStore = create<DataState>((set, get) => ({
     set((state) => ({ activities: [newActivity, ...state.activities] }))
   },
 }))
+
