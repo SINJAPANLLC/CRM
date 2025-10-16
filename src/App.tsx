@@ -1,6 +1,8 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
+console.log('🎨 App component loading...')
+
 // 美しいアイコンコンポーネント
 const DashboardIcon = () => (
   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -53,12 +55,16 @@ const LoginIcon = () => (
 )
 
 function App() {
+  console.log('🎯 App function called')
+  
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [email, setEmail] = useState('admin@example.com')
   const [password, setPassword] = useState('password')
   const [currentPage, setCurrentPage] = useState('dashboard')
   const [isLoading, setIsLoading] = useState(false)
   const [showSuccess, setShowSuccess] = useState(false)
+
+  console.log('🔐 Auth state:', { isAuthenticated, currentPage })
 
   const handleLogin = async () => {
     if (email === 'admin@example.com' && password === 'password') {
