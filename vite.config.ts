@@ -1,35 +1,26 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import { resolve } from 'path'
-import { fileURLToPath, URL } from 'node:url'
 
 export default defineConfig({
   plugins: [react()],
-  base: './',
-  resolve: {
-    alias: {
-      '@': fileURLToPath(new URL('./src', import.meta.url)),
-    },
-  },
+  base: '/',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
-    sourcemap: true,
+    sourcemap: false,
+    minify: false,
     rollupOptions: {
       output: {
-        manualChunks: undefined,
-        entryFileNames: 'assets/[name]-[hash].js',
-        chunkFileNames: 'assets/[name]-[hash].js',
-        assetFileNames: 'assets/[name]-[hash].[ext]',
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          router: ['react-router-dom'],
+          motion: ['framer-motion'],
+        },
       },
     },
   },
   server: {
     port: 5173,
-    open: true,
-  },
-  preview: {
-    port: 4173,
     open: true,
   },
 })
